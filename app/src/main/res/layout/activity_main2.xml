@@ -6,64 +6,114 @@
     android:layout_height="match_parent"
     tools:context="com.calendar.calendar.Main2Activity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="511dp">
+    <Button
+        android:id="@+id/bfecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="28dp"
+        android:text="Tarih"
+        app:layout_constraintBaseline_toBaselineOf="@+id/efecha"
+        app:layout_constraintEnd_toStartOf="@+id/efecha"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/aktivite_ismi"
-            android:layout_width="226dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="58dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Etkinlik adı"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="81dp" />
+    <Button
+        android:id="@+id/bhora"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="28dp"
+        android:text="Saat"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ehora"
+        app:layout_constraintEnd_toStartOf="@+id/ehora"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/aktivite_baslangic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="184dp"
-            android:ems="10"
-            android:inputType="date"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="157dp" />
+    <EditText
+        android:id="@+id/efecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="260dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bfecha"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/aktivite_bitis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:ems="10"
-            android:inputType="date"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="232dp" />
+    <EditText
+        android:id="@+id/ehora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bhora"
+        app:layout_constraintTop_toBottomOf="@+id/efecha" />
 
-        <EditText
-            android:id="@+id/aktivite_konumu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="117dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Konum" />
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="85dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Etkinlik Adı"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/aktivite_ekle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="116dp"
-            android:text="Ekle" />
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="85dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Konum"
+        app:layout_constraintBottom_toTopOf="@+id/bfecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/efecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <Button
+        android:id="@+id/ekle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="30dp"
+        android:onClick="aktivite_bitir"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ehora"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
