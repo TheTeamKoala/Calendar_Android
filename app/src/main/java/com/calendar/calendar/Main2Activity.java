@@ -78,4 +78,9 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
         finish();
     }
+    public void send_akt(View view){
+    Aktivite new_akt = new Aktivite();
+
+    aktivite_bitir(view);
+    }
 }
