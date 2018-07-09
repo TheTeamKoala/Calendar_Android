@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
 
     CompactCalendarView compactCalendar;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
+    ServerTasks st = null;
 
 
     @SuppressLint("RestrictedApi")
