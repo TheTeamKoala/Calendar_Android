@@ -1,11 +1,11 @@
 package com.calendar.calendar;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.view.Display;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,18 +15,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TimePicker;
+import android.widget.Toast;
 
-import java.util.Calendar;
+import com.github.sundeepk.compactcalendarview.CompactCalendarView;
+import com.github.sundeepk.compactcalendarview.domain.Event;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    CompactCalendarView compactCalendar;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
 
+
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +49,35 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDefaultDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle(null);
 
+        compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+        compactCalendar.setUseThreeLetterAbbreviation(true);
+
+        Event event1 = new Event(Color.BLUE,1531126440,"Herhangi bir gün");
+        compactCalendar.addEvent(event1);
+
+        compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            @Override
+            public void onDayClick(Date dateClicked) {
+                Context context = getApplicationContext();
+
+                if (dateClicked.toString().compareTo("Mon Jul 09 08:54:00 GMT 2018") == 0) {
+                    Toast.makeText(context, "The Day is Mine", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(context, "No Events Planned for that day", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onMonthScroll(Date firstDayOfNewMonth) {
+                actionBar.setTitle(dateFormat.format(firstDayOfNewMonth));
+            }
+        });
 
 
     }
