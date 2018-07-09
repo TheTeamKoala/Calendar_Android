@@ -16,12 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
@@ -56,21 +56,26 @@ public class MainActivity extends AppCompatActivity
         compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         compactCalendar.setUseThreeLetterAbbreviation(true);
 
-        Event event1 = new Event(Color.BLUE,1531126440,"Herhangi bir gün");
+        Event event1 = new Event(Color.BLUE,1531281926000L,"The Day is Mine");
         compactCalendar.addEvent(event1);
+        Event event2 = new Event(Color.GREEN,1531454726000L,"The Day is Mine");
+        compactCalendar.addEvent(event2);
 
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
                 Context context = getApplicationContext();
 
-                if (dateClicked.toString().compareTo("Mon Jul 09 08:54:00 GMT 2018") == 0) {
-                    Toast.makeText(context, "The Day is Mine", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(context, "No Events Planned for that day", Toast.LENGTH_SHORT).show();
+                List<Event> events = compactCalendar.getEvents(dateClicked);
+                try {
+                    if (events == null) {
+                        Toast.makeText(context, "The day is nothing here", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, events.get(0).getData().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Toast.makeText(context, "The day is nothing here", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
 
             @Override
