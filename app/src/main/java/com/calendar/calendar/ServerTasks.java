@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Clock;
 
 public class ServerTasks extends AsyncTask<String, String, String> {
     HttpURLConnection connection =null;
@@ -24,7 +25,7 @@ public class ServerTasks extends AsyncTask<String, String, String> {
     protected String doInBackground(String... strings) {
         //ilk parametre ile server adresi alinir
         try {
-            URL url = new URL(strings[0]);
+            URL url = new URL("https://calendar-web-443.herokuapp.com/appointments.json");
             connection = (HttpURLConnection) url.openConnection();
             connection.connect();
             InputStream is = connection.getInputStream();
@@ -35,7 +36,9 @@ public class ServerTasks extends AsyncTask<String, String, String> {
                 Log.d("Line :", line);
                 file += line;
             }
+
             return file;
+
 
         } catch (java.io.IOException e) {
             e.printStackTrace();
@@ -48,17 +51,23 @@ public class ServerTasks extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+
+
         try {
+            String result_json_text="",singleParsed="";
             // bu method ile doInBackGround methodunda serverdan elde ettigimiz bilgileri kullanacagiz
-            JSONObject json = new JSONObject(s);
-            //JSONArray jArray = json.getJSONArray("data");
-            //JSONObject json_data = jArray.getJSONObject(0);
+            JSONArray JA = new JSONArray(s);
+            for(int i =0 ;i <JA.length(); i++){
+                JSONObject JO = (JSONObject) JA.get(i);
+                singleParsed =  "Date:" + JO.get("date") + "\n"+ "Text:" + JO.get("text") + "\n";
 
-            //String result_json_text =  json_data.getString("date");
-            //Log.d("FOR_LOG", result_json_text);
+                result_json_text =  result_json_text + singleParsed +"\n" ;
 
-            //TextView textView = (TextView)findViewById(R.id.showtext);
-            //textView.setText(result_json_text);
+
+            }
+            Log.d("FOR_LOG", result_json_text);
+
+
 
 
         }

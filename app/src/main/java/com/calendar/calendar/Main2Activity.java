@@ -29,8 +29,11 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         efecha=(EditText)findViewById(R.id.efecha);
         ehora = (EditText)findViewById(R.id.ehora);
 
+
+
         bfecha.setOnClickListener(this);
         bhora.setOnClickListener((View.OnClickListener) this);
+
     }
 
     @Override// for calend
