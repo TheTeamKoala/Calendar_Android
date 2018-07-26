@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.calendar.calendar.display_etlinlik">
 
-    <TextView
-        android:id="@+id/etlinlik"
-        android:layout_width="272dp"
-        android:layout_height="121dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="113dp"
-        tools:ignore="MissingConstraints" />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#ECECEC"
+        android:dividerHeight="1sp" />
 </android.support.constraint.ConstraintLayout>

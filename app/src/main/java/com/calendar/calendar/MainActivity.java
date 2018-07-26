@@ -64,11 +64,6 @@ public class MainActivity extends AppCompatActivity
 
         compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         compactCalendar.setUseThreeLetterAbbreviation(true);
-
-        Event event1 = new Event(Color.BLUE,1531281926000L,"The Day is Mine");
-        compactCalendar.addEvent(event1);
-        Event event2 = new Event(Color.GREEN,1531454726000L,"The Day is Mine");
-        compactCalendar.addEvent(event2);
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
@@ -91,7 +86,6 @@ public class MainActivity extends AppCompatActivity
                 actionBar.setTitle(dateFormat.format(firstDayOfNewMonth));
             }
         });
-
 
     }
 
@@ -156,6 +150,13 @@ public class MainActivity extends AppCompatActivity
     public void addActivity(View view){
         Intent intent;
         intent = new Intent(MainActivity.this, Main2Activity.class);
+
+        startActivity(intent);
+        finish();
+    }
+    public void displayActivity(View view){
+        Intent intent;
+        intent = new Intent(MainActivity.this, display_etlinlik.class);
 
         startActivity(intent);
         finish();

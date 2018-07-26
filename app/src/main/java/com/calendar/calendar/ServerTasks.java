@@ -28,7 +28,7 @@ import java.util.TimeZone;
 public class ServerTasks extends AsyncTask<String, String, String> {
     HttpURLConnection connection =null;
     BufferedReader br=null;
-    ArrayList<Aktivite> list = new ArrayList<Aktivite>(10);
+    static ArrayList<Aktivite> list = new ArrayList<Aktivite>(10);
     public boolean conn=false;
     @Override
     protected String doInBackground(String... strings) {
@@ -90,7 +90,7 @@ public class ServerTasks extends AsyncTask<String, String, String> {
             e.printStackTrace();
         }
     }
-    public ArrayList<Aktivite> listOFAktivite(){
+    public static ArrayList<Aktivite> listOFAktivite(){
         return list ;
     }
 }
