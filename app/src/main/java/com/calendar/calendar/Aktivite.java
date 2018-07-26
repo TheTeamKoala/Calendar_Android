@@ -1,15 +1,17 @@
 package com.calendar.calendar;
 
+import java.util.Date;
+
 public class Aktivite {
 
-    private String tarih="";
+    private Date tarih = null ;
     private String saat="";
     private String etkinlik_adi="";
     private String olusturma_tarihi="";
     private String konum="";
 
 
-    public void setTarih(String tarih) {
+    public void setTarih(Date tarih) {
         this.tarih = tarih;
     }
 
@@ -49,7 +51,7 @@ public class Aktivite {
 
 
 
-    public String getTarih() {
+    public Date getTarih() {
         return tarih;
     }
 

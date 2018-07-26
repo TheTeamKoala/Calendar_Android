@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +21,7 @@ import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -28,9 +30,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    CompactCalendarView compactCalendar;
+    static CompactCalendarView compactCalendar;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
     ServerTasks st = null;
+    //ArrayList<Aktivite> list = new ArrayList<Aktivite>(10);
 
 
     @SuppressLint("RestrictedApi")
@@ -66,7 +69,6 @@ public class MainActivity extends AppCompatActivity
         compactCalendar.addEvent(event1);
         Event event2 = new Event(Color.GREEN,1531454726000L,"The Day is Mine");
         compactCalendar.addEvent(event2);
-
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
@@ -150,7 +152,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     public void addActivity(View view){
         Intent intent;
@@ -158,8 +159,16 @@ public class MainActivity extends AppCompatActivity
 
         startActivity(intent);
         finish();
-
     }
-
-
+    public static void aktivite_handler(ArrayList<Aktivite> list ){
+            Log.d("FOR_LOG", list.size() + "yunus emre kepenekkkkkk");
+            Event temp;
+            for (int i = 0; i < list.size(); i++) {
+                temp = new Event(Color.BLUE, list.get(i).getTarih().getTime(), list.get(i).getEtkinlik_adi());
+                Log.d("FOR_LOG", String.valueOf(temp));
+                compactCalendar.addEvent(temp);
+            }
+    }
 }
+
+
