@@ -1,6 +1,7 @@
 package com.calendar.calendar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,4 +29,19 @@ public class display_etlinlik extends AppCompatActivity  {
                 android.R.layout.simple_list_item_1,listOFAktivite);
         list.setAdapter(adapter);
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        View v = findViewById(android.R.id.content);
+        send_akt(v);
+    }
+
+    private void send_akt(View v) {
+        Intent intent;
+        intent = new Intent(display_etlinlik.this, MainActivity.class);
+
+        startActivity(intent);
+        finish();
+    }
+
 }

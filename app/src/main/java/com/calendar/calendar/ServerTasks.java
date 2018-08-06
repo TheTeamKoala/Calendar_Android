@@ -63,7 +63,7 @@ public class ServerTasks extends AsyncTask<String, String, String> {
         SimpleDateFormat sdf;
         sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-
+        list = new ArrayList<Aktivite>(10);
         try {
             String result_json_text="",singleParsed="";
             // bu method ile doInBackGround methodunda serverdan elde ettigimiz bilgileri kullanacagiz

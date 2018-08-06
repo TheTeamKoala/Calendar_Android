@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etk_adi"
         android:layout_width="204dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
@@ -99,7 +99,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/efecha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/etk_adi" />
 
     <Button
         android:id="@+id/ekle"
@@ -110,7 +110,7 @@
         android:layout_marginStart="151dp"
         android:layout_marginTop="30dp"
         android:onClick="aktivite_bitir"
-        android:text="Button"
+        android:text="Ekle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
